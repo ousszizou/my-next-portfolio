@@ -10,13 +10,17 @@ const styles = {
   }),
 };
 
-const theme = extendTheme({
+const config = {
   initialColorMode: "dark",
   useSystemColorMode: false,
+};
+
+const theme = extendTheme({
   fonts: {
     heading: "Dosis",
     body: "Gothic A1",
   },
+  config,
   styles,
 });
 export default theme;
