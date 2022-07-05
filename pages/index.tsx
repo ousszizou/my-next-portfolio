@@ -1,17 +1,18 @@
-import Head from "next/head";
 import {
   Box,
   Flex,
+  HStack,
+  Heading,
   Link,
   Text,
-  chakra,
-  HStack,
   VStack,
-  Heading,
+  chakra,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+
 import { ExternalLinkIcon } from "@chakra-ui/icons";
+import Head from "next/head";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 const MotionFlex = motion(Flex);
@@ -168,7 +169,7 @@ export default function Home() {
           h={"100vh"}
           py={20}
         >
-          <chakra.span as="h4" size="md">
+          <chakra.span as="h4" fontSize="md">
             Hello 👋 Welcome to my portfolio!
           </chakra.span>
           <Heading as="h1" size="4xl">
