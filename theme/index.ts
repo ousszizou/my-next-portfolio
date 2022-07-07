@@ -7,6 +7,11 @@ const theme = extendTheme({
     heading: "Dosis",
     body: "Gothic A1",
   },
+  colors: {
+    app: {
+      text: "#949495",
+    },
+  },
   config,
   styles,
 });
