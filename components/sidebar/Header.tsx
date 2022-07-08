@@ -23,14 +23,15 @@ const Header = () => {
       >
         I&apos;m a Self-Taught Full-stack Web Developer based in Sétif, Algeria.
         Passionate about javascript ecosystem & Golang development.
-        <br /> I share what I learn on my YouTube Channel{" "}
+        <br /> I share my experience & what I learn on my
         <Link
+          ms={2}
           textDecoration="underline"
           href="https://www.youtube.com/c/algorithmCoding"
           isExternal
           color="whiteAlpha.900"
         >
-          Algorithm Academy
+          YouTube Channel
         </Link>
         .
       </Text>

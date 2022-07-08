@@ -1,8 +1,9 @@
-import { Link, Project, SocialLink, Technology } from "./types";
+import { Experience, Link, Project, SocialLink, Technology } from "./types";
 
 export const links: Array<Link> = [
   { id: "01", name: "PROJECTS", href: "#projects" },
   { id: "02", name: "TECHNOLOGIES I USE", href: "#technologies" },
+  { id: "03", name: "EXPERIENCES", href: "#experiences" },
 ];
 
 export const socialLinks: Array<SocialLink> = [
@@ -30,6 +31,20 @@ export const projects: Array<Project> = [
     stack: [],
   },
   {
+    type: "FULLSTACK",
+    title: "Cameo Clone",
+    description: "This clone tries to replicate some of the cameo's features",
+    link: "",
+    stack: [],
+  },
+  {
+    type: "FULLSTACK",
+    title: "Redesign TrustMe Platform",
+    description: "description will be here",
+    link: "",
+    stack: [],
+  },
+  {
     type: "FRONTEND",
     title: "Arabic Markdown Editor",
     description: "Modern markdown editor support RTL",
@@ -38,8 +53,8 @@ export const projects: Array<Project> = [
   },
   {
     type: "FRONTEND",
-    title: "Vupa Framework",
-    description: "Framework components for vue.js (v2/v3)",
+    title: "Vupa",
+    description: "🚀 Beautiful and modern Vue 3 UI library.",
     link: "",
     stack: [],
   },
@@ -131,4 +146,40 @@ export const technologies: Array<Technology> = [
   //   title: "Docker",
   //   icon: "technologies_logos/docker.svg",
   // },
+];
+
+export const experiences: Array<Experience> = [
+  {
+    id: "01",
+    timeline: "Jan 2022 - Present",
+    location: "Algeria",
+    company: "TOP ACADEMIC SERVICES QUALITY",
+    position: "Front-end Developer",
+    colors: {
+      left: "#9DECF9",
+      right: "#9F7AEA",
+    },
+  },
+  {
+    id: "02",
+    timeline: "Nov 2018 - Present",
+    location: "Home",
+    company: "YouTube",
+    position: "Content Creator",
+    colors: {
+      left: "#FEB2B2",
+      right: "#ED8936",
+    },
+  },
+  {
+    id: "03",
+    timeline: "Jan 2017 - Present",
+    location: "Home",
+    company: "Freelancer",
+    position: "Full-stack Developer",
+    colors: {
+      left: "#9AE6B4",
+      right: "#4299E1",
+    },
+  },
 ];

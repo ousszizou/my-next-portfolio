@@ -22,3 +22,17 @@ export type Technology = {
   title: string;
   icon: string;
 };
+
+type Colors = {
+  left: string;
+  right: string;
+};
+
+export type Experience = {
+  id: string;
+  location: string;
+  timeline: string;
+  company: string;
+  position: string;
+  colors: Colors;
+};

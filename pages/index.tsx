@@ -1,7 +1,8 @@
 import { Box, Flex, Heading, Text, VStack, chakra } from "@chakra-ui/react";
 import { MotionBox, MotionFlex } from "utils";
-import { projects, technologies } from "data";
+import { experiences, projects, technologies } from "data";
 
+import { Experience } from "data/types";
 import Head from "next/head";
 import Sidebar from "components/sidebar";
 import { useState } from "react";
@@ -39,7 +40,14 @@ export default function Home() {
       >
         <Sidebar />
         <Flex flexDirection="column" py={20} ml={"auto"} w={"50%"}>
-          <VStack>
+          <Text align="center" fontSize={"4xl"} color="app.text">
+            PORTFOLIOS ARE <chakra.span color="white">EVERYTHING</chakra.span>
+            ,
+            <br /> PROMISES ARE <chakra.span color="white">NOTHING</chakra.span>
+            .
+            <br /> <chakra.span color="white">DO</chakra.span> THE WORK.
+          </Text>
+          <VStack mt={16}>
             {projects.map((project, i) => (
               <MotionFlex
                 bg="#202022"
@@ -128,6 +136,54 @@ export default function Home() {
               </MotionBox>
             ))}
           </Flex>
+
+          <VStack mt={16}>
+            {experiences.map(
+              (
+                {
+                  company,
+                  id,
+                  location,
+                  position,
+                  timeline,
+                  colors,
+                }: Experience,
+                i: number
+              ) => (
+                <MotionFlex
+                  w="100%"
+                  border="3px solid"
+                  borderColor="transparent"
+                  bg={` 
+            linear-gradient(135deg, ${colors.left}, ${colors.right}) border-box`}
+                  flexDirection="row"
+                  key={id}
+                  id={i}
+                >
+                  <Box p={8} bg="#202022" w="full" h="full">
+                    <VStack
+                      ms={4}
+                      justifyContent={"center"}
+                      alignItems={"flex-start"}
+                    >
+                      <chakra.span fontSize="xs" letterSpacing="0.2em">
+                        {company}
+                      </chakra.span>
+                      <Heading
+                        bgClip="text"
+                        bgGradient={`linear-gradient(135deg, ${colors.left}, ${colors.right})`}
+                      >
+                        {position}
+                      </Heading>
+                      <Text color="app.text" fontSize="sm">
+                        {timeline} · {location}
+                      </Text>
+                    </VStack>
+                  </Box>
+                </MotionFlex>
+              )
+            )}
+          </VStack>
         </Flex>
       </Box>
     </div>
