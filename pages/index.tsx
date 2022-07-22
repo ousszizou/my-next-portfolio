@@ -7,15 +7,23 @@ import Head from "next/head";
 import Sidebar from "components/sidebar";
 import { useState } from "react";
 
+// TODO: enhance card variants section to avoid duplicate code
+// const cardVariants = {
+//   rest: { scale: 1 },
+// };
+
 const projectsCardVariants = {
   rest: { scale: 1 },
   hover: { scale: 1.1, cursor: "pointer" },
 };
 
 const technologyCardVariants = {
-  reset: {
-    scale: 1,
-  },
+  rest: { scale: 1 },
+  hover: { scale: 1.1 },
+};
+
+const experienceCardVariants = {
+  rest: { scale: 1 },
   hover: { scale: 1.1 },
 };
 
@@ -24,7 +32,10 @@ export default function Home() {
   const [projectCardId, setprojectCardId] = useState(null);
 
   const [isTechnologyCardHovered, setIsTechnologyCardHovered] = useState(false);
-  const [technologyCardId, settechnologyCardId] = useState(null);
+  const [technologyCardId, setTechnologyCardId] = useState(null);
+
+  const [isExperienceCardHovered, setIsExperienceCardHovered] = useState(false);
+  const [experienceCardId, setExperienceCardId] = useState(null);
 
   return (
     <div>
@@ -32,11 +43,14 @@ export default function Home() {
         <title>Djaidri Oussama - Portfolio</title>
         <meta name="description" content="oussama djaidri portfolio website" />
       </Head>
-      <Box
+      <Flex
         pos={"relative"}
-        display={"flex"}
         justifyContent={"space-between"}
         w={"100%"}
+        flexDir={{
+          base: "column",
+          md: "row",
+        }}
       >
         <Sidebar />
         <Flex flexDirection="column" py={20} ml={"auto"} w={"50%"}>
@@ -47,7 +61,7 @@ export default function Home() {
             .
             <br /> <chakra.span color="white">DO</chakra.span> THE WORK.
           </Text>
-          <VStack mt={16}>
+          <VStack mt={20}>
             {projects.map((project, i) => (
               <MotionFlex
                 bg="#202022"
@@ -84,7 +98,7 @@ export default function Home() {
             ))}
           </VStack>
 
-          <Flex mt={16} flexWrap="wrap">
+          <Flex mt={20} flexWrap="wrap">
             {technologies.map((technology, i) => (
               <MotionBox
                 mt={i == 0 ? "" : i == 1 ? 6 : i % 2 == 0 ? -6 : ""}
@@ -99,11 +113,11 @@ export default function Home() {
                   transition={{ duration: 0.2, type: "tween" }}
                   onHoverStart={(e) => {
                     setIsTechnologyCardHovered(true);
-                    settechnologyCardId(e.target.id);
+                    setTechnologyCardId(e.target.id);
                   }}
                   onHoverEnd={(e) => {
                     setIsTechnologyCardHovered(false);
-                    settechnologyCardId(null);
+                    setTechnologyCardId(null);
                   }}
                   style={
                     isTechnologyCardHovered && technologyCardId != i
@@ -137,7 +151,7 @@ export default function Home() {
             ))}
           </Flex>
 
-          <VStack mt={16}>
+          <VStack mt={20}>
             {experiences.map(
               (
                 {
@@ -152,10 +166,23 @@ export default function Home() {
               ) => (
                 <MotionFlex
                   w="100%"
-                  border="3px solid"
-                  borderColor="transparent"
-                  bg={` 
-            linear-gradient(135deg, ${colors.left}, ${colors.right}) border-box`}
+                  variants={experienceCardVariants}
+                  initial="rest"
+                  whileHover="hover"
+                  transition={{ duration: 0.2, type: "tween" }}
+                  onHoverStart={(e) => {
+                    setIsExperienceCardHovered(true);
+                    setExperienceCardId(e.target.id);
+                  }}
+                  onHoverEnd={(e) => {
+                    setIsExperienceCardHovered(false);
+                    setExperienceCardId(null);
+                  }}
+                  style={
+                    isExperienceCardHovered && experienceCardId != i
+                      ? { opacity: 0.5 }
+                      : { opacity: 1 }
+                  }
                   flexDirection="row"
                   key={id}
                   id={i}
@@ -185,7 +212,7 @@ export default function Home() {
             )}
           </VStack>
         </Flex>
-      </Box>
+      </Flex>
     </div>
   );
 }

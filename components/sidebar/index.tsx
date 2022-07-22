@@ -8,8 +8,14 @@ const Sidebar = () => {
     <Flex
       flexDirection={"column"}
       alignItems="flex-start"
-      pos={"fixed"}
-      w={"30%"}
+      pos={{
+        base: "inherit",
+        md: "fixed",
+      }}
+      w={{
+        base: "full",
+        md: "30%",
+      }}
       h={"100vh"}
       py={20}
     >

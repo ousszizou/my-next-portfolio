@@ -21,8 +21,12 @@ const Header = () => {
         mt="8"
         color={useColorModeValue("gray.700", "app.text")}
       >
-        I&apos;m a Self-Taught Full-stack Web Developer based in Sétif, Algeria.
-        Passionate about javascript ecosystem & Golang development.
+        I&apos;m a Self-Taught Full-stack Web Developer{" "}
+        <chakra.strong color="orange.300">
+          (with a strong focus on Front-end engineering and system design)
+        </chakra.strong>{" "}
+        based in Sétif, Algeria. Passionate about javascript ecosystem & Golang
+        development.
         <br /> I share my experience & what I learn on my
         <Link
           ms={2}

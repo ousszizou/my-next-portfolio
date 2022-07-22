@@ -151,7 +151,7 @@ export const technologies: Array<Technology> = [
 export const experiences: Array<Experience> = [
   {
     id: "01",
-    timeline: "Jan 2022 - Present",
+    timeline: "Jan 2022 - Jul 2022",
     location: "Algeria",
     company: "TOP ACADEMIC SERVICES QUALITY",
     position: "Front-end Developer",
